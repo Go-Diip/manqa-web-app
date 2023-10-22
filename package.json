@@ -49,8 +49,8 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.47.0",
     "react-modal-video": "^2.0.1",
-    "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1"
+    "swiper": "^10.3.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "gatsby-plugin-netlify": "^5.1.1",
