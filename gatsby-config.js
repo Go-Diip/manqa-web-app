@@ -82,7 +82,7 @@ module.exports = {
             google: [
               {
                 family: `Josefin Sans`,
-                variants: [`400`, `500`, `700`],
+                variants: [`300`, `400`, `500`, `700`],
               },
               {
                 family: `Julius Sans One`,
