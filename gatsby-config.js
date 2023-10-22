@@ -33,12 +33,12 @@ module.exports = {
     //     // other options
     //   },
     // },
-    {
-      resolve: `gatsby-plugin-advanced-sitemap`,
-      options: {
-        exclude: [`/404`, `/layouts`],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-advanced-sitemap`,
+    //   options: {
+    //     exclude: [`/404`, `/layouts`],
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
