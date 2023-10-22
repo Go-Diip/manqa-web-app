@@ -9,14 +9,14 @@ export const CustomButton = styled(Button)`
     theme.palette[color]
       ? theme.palette[color].main
       : theme.palette.primary.main};
-  padding: 0.5em 1.5em;
+  padding: 0.5rem 1.5rem;
   border: 1px solid transparent;
-  font-size: ${({ theme }) => theme.typography.pxToRem(14)};
-  font-weight: 600 !important;
-  border-radius: 4px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 0;
 
   ${({ theme }) => theme.breakpoints.up("md")} {
-    padding: 0.5em 3em;
+    padding: 0.65rem 2rem;
   }
   &.light {
     background-color: white;
@@ -46,10 +46,8 @@ export const CustomButton = styled(Button)`
         theme.palette[color]
           ? theme.palette[color].main
           : theme.palette.primary.main,
-        0.1
+        0.1,
       )};
-    //border: 1px solid ${({ theme }) =>
-      darken(theme.palette.primary.main, 0.1)};
   }
 
   &.Mui-disabled {
@@ -107,10 +105,8 @@ export const CustomButtonLink = styled(AniLink)`
         theme.palette[color]
           ? theme.palette[color].main
           : theme.palette.primary.main,
-        0.1
+        0.1,
       )};
-    //border: 1px solid ${({ theme }) =>
-      darken(theme.palette.primary.main, 0.1)};
   }
 
   &.Mui-disabled {
