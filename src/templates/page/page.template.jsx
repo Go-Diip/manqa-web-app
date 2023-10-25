@@ -55,6 +55,9 @@ export const query = graphql`
           ... on WpPage_Pagebuilder_Layouts_AboutUs {
             ...AboutUs
           }
+          ... on WpPage_Pagebuilder_Layouts_MeetUs {
+            ...MeetUs
+          }
         }
         pageConfiguration {
           hideFooter
