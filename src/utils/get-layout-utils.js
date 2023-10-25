@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid"
 import HomeHero from "../layouts/HomeHero"
 import AboutUs from "../layouts/AboutUs"
 import MeetUs from "../layouts/MeetUs"
+import TestimonialsSlider from "../layouts/TestimonialsSlider"
 
 export const getPageLayout = layout => {
   const layoutName = layout?.fieldGroupName?.split("_").pop().trim()
@@ -17,5 +18,7 @@ export const getPageLayout = layout => {
       return <AboutUs key={uuidv4()} {...layout} />
     case "MeetUs":
       return <MeetUs key={uuidv4()} {...layout} />
+    case "TestimonialsSlider":
+      return <TestimonialsSlider key={uuidv4()} {...layout} />
   }
 }
