@@ -74,6 +74,9 @@ export const Content = styled.div`
     a {
       color: ${({ theme }) => theme.palette.primary.main};
     }
+    ${({ theme }) => theme.breakpoints.down("md")} {
+      margin-top: 10px;
+    }
   }
 `
 

@@ -68,10 +68,6 @@ const HomeHero = ({ sliderItems }) => {
           loop={true}
           slidesPerView={1}
           modules={[Autoplay]}
-          //   autoplay={{
-          //     delay: 3000,
-          //     disableOnInteraction: false,
-          //   }}
         >
           {sliderItems?.map(({ image, name }, index) => (
             <SwiperSlide key={`${index}-Testimonials}`}>

@@ -15,13 +15,8 @@ const TestimonialsSlider = ({ sliderItems, instagram, instagramImages }) => {
       <Container>
         <S.SliderWrapper>
           <Swiper
-            // loop={true}
             slidesPerView={1}
             modules={[Autoplay, Navigation]}
-            //   autoplay={{
-            //     delay: 3000,
-            //     disableOnInteraction: false,
-            //   }}
             navigation={{
               prevEl: ".testimonial-prev",
               nextEl: ".testimonial-next",

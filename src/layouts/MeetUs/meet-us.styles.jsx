@@ -13,7 +13,7 @@ export const TextWrapper = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
-  padding: 2rem;
+  padding: 1.5rem;
   ${({ theme }) => theme.breakpoints.up("sm")} {
     padding: 3rem 2rem;
   }
@@ -64,11 +64,20 @@ export const StyledAnchor = styled(CustomLink)`
   }
 `
 
+export const ImageWrapper = styled.div`
+  height: 100%;
+  /* img {
+    ${({ theme }) => theme.breakpoints.down("md")} {
+      object-position: 0px -119px;
+    }
+  } */
+`
+
 export const StyledImage = styled(CustomImage)`
   height: 100%;
   img {
     ${({ theme }) => theme.breakpoints.down("md")} {
-      object-position: 0px -119px;
+      object-position: 0px 60%;
     }
   }
 `

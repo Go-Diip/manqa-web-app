@@ -24,7 +24,7 @@ const AboutUs = ({ title, description, items }) => {
           <S.Description>{description}</S.Description>
         </S.TopContainer>
       </S.TopWrapper>
-      <CustomImage img={staticQuery.pattern} alt="pattern" />
+      <S.PatternImage img={staticQuery.pattern} alt="pattern" />
       <S.MiddleWrapper>
         {items?.length > 0 && (
           <Grid container>
