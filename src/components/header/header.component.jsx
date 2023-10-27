@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <>
-      <S.Header elevation={scrollTrigger ? 4 : 0}>
+      <S.Header elevation={scrollTrigger ? 4 : 0} position="relative">
         <Container>
           <S.LogoWrapper>
             <Logo />

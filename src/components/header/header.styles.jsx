@@ -5,6 +5,10 @@ import CustomLink from "../custom-link/custom-link.component"
 export const Header = styled(AppBar)`
   background-color: ${({ theme }) => theme.palette.text.secondary};
   padding: 1rem 0;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    position: fixed;
+    z-index: 100;
+  }
   > .MuiContainer-root {
     display: flex;
     align-items: center;

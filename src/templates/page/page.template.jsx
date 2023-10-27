@@ -61,6 +61,9 @@ export const query = graphql`
           ... on WpPage_Pagebuilder_Layouts_TestimonialsSlider {
             ...TestimonialsSlider
           }
+          ... on WpPage_Pagebuilder_Layouts_AboutHero {
+            ...AboutHero
+          }
         }
         pageConfiguration {
           hideFooter
