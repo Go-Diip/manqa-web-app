@@ -25,7 +25,7 @@ export const Header = styled(AppBar)`
   }
 `
 
-export const LogoWrapper = styled.div`
+export const LogoWrapper = styled(CustomLink)`
   display: flex;
   svg {
     height: auto;
@@ -68,6 +68,7 @@ export const MobileMenu = styled.div`
   top: ${({ theme }) => theme.navHeight}px;
   width: 100%;
   background: ${({ theme }) => theme.palette.text.secondary};
+  z-index: 101;
   svg {
     width: 14px;
     height: 14px;

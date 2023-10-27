@@ -4,7 +4,7 @@ import CustomButton from "../../components/custom-button/custom-button.component
 import CustomImage from "../../components/custom-image/custom-image.component"
 
 export const Section = styled.section`
-  background-color: ${({ theme }) => theme.palette.text.light};
+  background-color: ${({ theme }) => theme.palette.text.secondary};
 `
 
 export const TopWrapper = styled.div`
@@ -56,14 +56,40 @@ export const BottomWrapper = styled.div`
   justify-content: center;
   padding-top: 3rem;
   padding-bottom: 3rem;
+  position: relative;
   ${({ theme }) => theme.breakpoints.up("md")} {
     padding-top: 6rem;
     padding-bottom: 6rem;
   }
 `
 
+export const PatternWrapper = styled.div`
+  position: absolute;
+  inset: 0;
+  svg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: auto;
+    &.reverse {
+      left: 0;
+      right: unset;
+      transform: rotate(180deg);
+    }
+  }
+`
+
 export const ReservationBtn = styled(CustomButton)`
-  ${({ theme }) => theme.breakpoints.up("md")} {
+  padding: 0.4rem 2.5rem;
+  font-size: 0.5rem;
+  line-height: ${({ theme }) => theme.typography.pxToRem("10")};
+  position: relative;
+  z-index: 2;
+  ${({ theme }) => theme.breakpoints.up("sm")} {
+    font-size: 1.125rem;
+    line-height: 1.25rem;
     padding: 0.65rem 5rem;
   }
 `
@@ -119,7 +145,8 @@ export const StyledBtn = styled(CustomButton)`
 
 export const PatternImage = styled(CustomImage)`
   width: 100%;
-  ${({ theme }) => theme.breakpoints.down("md")} {
-    height: 53px;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    /* height: 53px; */
+    width: 133vw;
   }
 `

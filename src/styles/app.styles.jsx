@@ -214,4 +214,9 @@ export const AppContainer = styled.main`
     padding-top: 0;
   }
   background-color: #f8fdff;
+  ${({ hiddenheader }) =>
+    hiddenheader &&
+    css`
+      padding-top: 0;
+    `}
 `

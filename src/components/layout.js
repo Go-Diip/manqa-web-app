@@ -15,7 +15,7 @@ const Layout = ({ children, hideHeader }) => {
   return (
     <>
       {!hideHeader && <Header />}
-      <AppContainer>{children}</AppContainer>
+      <AppContainer hiddenheader={hideHeader}>{children}</AppContainer>
       <Footer />
     </>
   )

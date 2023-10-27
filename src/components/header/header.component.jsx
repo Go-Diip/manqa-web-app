@@ -21,7 +21,7 @@ const Header = () => {
     <>
       <S.Header elevation={scrollTrigger ? 4 : 0} position="relative">
         <Container>
-          <S.LogoWrapper>
+          <S.LogoWrapper url="/">
             <Logo />
           </S.LogoWrapper>
           <S.LinksWrapper>

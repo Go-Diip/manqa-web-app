@@ -5,6 +5,7 @@ import CustomLink from "../custom-link/custom-link.component"
 export const Section = styled.footer`
   padding: 2.5rem 0;
   border-top: 1px solid ${({ theme }) => theme.palette.primary.main};
+  background-color: ${({ theme }) => theme.palette.text.secondary};
   ${({ theme }) => theme.breakpoints.up("md")} {
     border: 0;
     padding-top: 0;

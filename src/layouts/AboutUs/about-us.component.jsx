@@ -1,14 +1,14 @@
 import React from "react"
 import * as S from "./about-us.styles"
 import { graphql, useStaticQuery } from "gatsby"
-import CustomImage from "../../components/custom-image/custom-image.component"
 import { Grid, Stack } from "@mui/material"
 import CustomVideo from "../../components/custom-video/custom-video.component"
+import FlowerPattern from "../../assets/flower-pattern.svg"
 
 const AboutUs = ({ title, description, items }) => {
   const staticQuery = useStaticQuery(graphql`
     query {
-      pattern: file(relativePath: { eq: "about-us-pattern.jpg" }) {
+      pattern: file(relativePath: { eq: "about-us-pattern.png" }) {
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH, quality: 100)
         }
@@ -64,6 +64,10 @@ const AboutUs = ({ title, description, items }) => {
       </S.MiddleWrapper>
       <S.BottomWrapper>
         <S.ReservationBtn href="/reservaciones">Reservar</S.ReservationBtn>
+        <S.PatternWrapper>
+          <FlowerPattern />
+          <FlowerPattern className="reverse" />
+        </S.PatternWrapper>
       </S.BottomWrapper>
     </S.Section>
   )

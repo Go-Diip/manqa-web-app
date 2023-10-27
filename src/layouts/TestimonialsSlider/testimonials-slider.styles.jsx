@@ -4,6 +4,7 @@ import { IconButton, Typography } from "@mui/material"
 export const Section = styled.section`
   padding-top: 3.125rem;
   padding-bottom: 3.5rem;
+  background-color: ${({ theme }) => theme.palette.text.secondary};
   ${({ theme }) => theme.breakpoints.up("md")} {
     padding-top: 10rem;
     padding-bottom: 8.5rem;
