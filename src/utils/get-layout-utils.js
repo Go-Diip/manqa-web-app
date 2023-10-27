@@ -6,6 +6,7 @@ import AboutUs from "../layouts/AboutUs"
 import MeetUs from "../layouts/MeetUs"
 import TestimonialsSlider from "../layouts/TestimonialsSlider"
 import AboutHero from "../layouts/AboutHero"
+import ImagesGallery from "../layouts/ImagesGallery"
 
 export const getPageLayout = layout => {
   const layoutName = layout?.fieldGroupName?.split("_").pop().trim()
@@ -23,5 +24,7 @@ export const getPageLayout = layout => {
       return <TestimonialsSlider key={uuidv4()} {...layout} />
     case "AboutHero":
       return <AboutHero key={uuidv4()} {...layout} />
+    case "ImagesGallery":
+      return <ImagesGallery key={uuidv4()} {...layout} />
   }
 }
