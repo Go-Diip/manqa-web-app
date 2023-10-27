@@ -47,6 +47,7 @@ const Footer = () => {
             spacing={{ xs: 5, md: 7.5 }}
             direction="row"
             justifyContent={{ xs: "space-between", md: "flex-end" }}
+            alignItems="center"
           >
             <a>
               <Instagram />

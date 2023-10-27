@@ -7,16 +7,14 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-
-import SEO from "../components/seo/seo.component"
 import Header from "../components/header/header.component"
 import { AppContainer } from "../styles/app.styles"
 import Footer from "./footer/footer.component"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, hideHeader }) => {
   return (
     <>
-      <Header />
+      {!hideHeader && <Header />}
       <AppContainer>{children}</AppContainer>
       <Footer />
     </>

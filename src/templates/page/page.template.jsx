@@ -64,7 +64,7 @@ export const query = graphql`
         }
         pageConfiguration {
           hideFooter
-          hideHeaderItems
+          hideHeader
         }
       }
     }

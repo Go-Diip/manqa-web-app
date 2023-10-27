@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material/styles"
 
 const theme = createTheme({
-  navHeight: 74,
+  navHeight: 64,
   sectionPadding: "padding-top: 1.5em; padding-bottom: 1.5em;",
   fonts: {
     primary: "Josefin Sans, sans-serif",
