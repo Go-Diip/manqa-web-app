@@ -5,7 +5,7 @@
     },
     {
         "title": "Reservar",
-        "url": "/reservaciones"
+        "url": "/reservaciones/"
     },
     {
         "title": "Menú",
@@ -27,13 +27,5 @@
                 "url": "#"
             }
         ]
-    },
-    {
-        "title": "Conócenos",
-        "url": "#"
-    },
-    {
-        "title": "Contacto",
-        "url": "#"
     }
 ]

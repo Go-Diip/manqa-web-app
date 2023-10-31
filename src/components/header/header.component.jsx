@@ -7,6 +7,7 @@ import HeaderItem from "./header-item/header-item.component.jsx"
 import MenuIcon from "../../assets/menu.svg"
 import AddIcon from "@mui/icons-material/Add"
 import RemoveIcon from "@mui/icons-material/Remove"
+import { RESERVATIONS_ENABLED } from "../../utils/constants"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -30,7 +31,9 @@ const Header = () => {
             ))}
           </S.LinksWrapper>
           <S.MobileWrapper>
-            <S.StyledLink url="/reservaciones">Reservar</S.StyledLink>
+            {RESERVATIONS_ENABLED && (
+              <S.StyledLink url="/reservaciones">Reservar</S.StyledLink>
+            )}
             <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)} />
           </S.MobileWrapper>
         </Container>

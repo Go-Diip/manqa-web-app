@@ -3,6 +3,7 @@ import * as S from "./header-item.styles"
 import AddIcon from "@mui/icons-material/Add"
 import RemoveIcon from "@mui/icons-material/Remove"
 import { MenuItem } from "@mui/material"
+import { RESERVATIONS_ENABLED } from "../../../utils/constants"
 
 const HeaderItem = ({ title, url, items }) => {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -16,6 +17,10 @@ const HeaderItem = ({ title, url, items }) => {
     setAnchorEl(null)
   }
   const Link = items ? S.StyledText : S.StyledLink
+
+  if (title === "Reservar" && !RESERVATIONS_ENABLED) {
+    return null
+  }
 
   return (
     <>

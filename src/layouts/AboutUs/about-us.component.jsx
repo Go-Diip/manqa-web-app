@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { Grid, Stack } from "@mui/material"
 import CustomVideo from "../../components/custom-video/custom-video.component"
 import FlowerPattern from "../../assets/flower-pattern.svg"
+import { RESERVATIONS_ENABLED } from "../../utils/constants"
 
 const AboutUs = ({ title, description, items }) => {
   const staticQuery = useStaticQuery(graphql`
@@ -62,13 +63,16 @@ const AboutUs = ({ title, description, items }) => {
           </Grid>
         )}
       </S.MiddleWrapper>
-      <S.BottomWrapper>
-        <S.ReservationBtn href="/reservaciones">Reservar</S.ReservationBtn>
-        <S.PatternWrapper>
-          <FlowerPattern />
-          <FlowerPattern className="reverse" />
-        </S.PatternWrapper>
-      </S.BottomWrapper>
+      {RESERVATIONS_ENABLED && (
+        <S.BottomWrapper>
+          <S.ReservationBtn href="/reservaciones">Reservar</S.ReservationBtn>
+
+          <S.PatternWrapper>
+            <FlowerPattern />
+            <FlowerPattern className="reverse" />
+          </S.PatternWrapper>
+        </S.BottomWrapper>
+      )}
     </S.Section>
   )
 }

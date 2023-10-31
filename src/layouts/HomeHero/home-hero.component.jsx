@@ -7,6 +7,7 @@ import "swiper/css"
 import AddIcon from "@mui/icons-material/Add"
 import RemoveIcon from "@mui/icons-material/Remove"
 import { Box, Collapse } from "@mui/material"
+import { RESERVATIONS_ENABLED } from "../../utils/constants"
 
 const HomeHero = ({ sliderItems }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
@@ -27,7 +28,9 @@ const HomeHero = ({ sliderItems }) => {
             <Logo />
           </S.LogoWrapper>
           <S.LinksWrapper>
-            <S.StyledLink url="/reservaciones">Reservar</S.StyledLink>
+            {RESERVATIONS_ENABLED && (
+              <S.StyledLink url="/reservaciones/">Reservar</S.StyledLink>
+            )}
             <S.LinkWrapper>
               <S.ParentLink onClick={() => setIsOpenMenu(!isOpenMenu)}>
                 Menú

@@ -72,14 +72,13 @@ export const PaginationItem = styled.div`
 
 export const Name = styled(Typography)`
   color: ${({ theme }) => theme.palette.primary.dark};
-  font-size: ${({ theme }) => theme.typography.pxToRem("9")};
-  font-weight: 300;
-  line-height: ${({ theme }) => theme.typography.pxToRem("21")};
+  font-size: ${({ theme }) => theme.typography.pxToRem(9)};
+  line-height: ${({ theme }) => theme.typography.pxToRem(21)};
   font-weight: 300;
   mix-blend-mode: multiply;
   ${({ theme }) => theme.breakpoints.up("sm")} {
     font-size: 1.125rem;
-    line-height: ${({ theme }) => theme.typography.pxToRem("21")};
+    line-height: ${({ theme }) => theme.typography.pxToRem(21)};
   }
 `
 
@@ -88,6 +87,9 @@ export const SlideImage = styled(CustomImage)`
   height: 100vh;
   min-height: 600px;
   max-height: 1000px;
+  img {
+    object-position: right;
+  }
 `
 
 export const LogoWrapper = styled.div`
