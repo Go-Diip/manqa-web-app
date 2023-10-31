@@ -8,7 +8,7 @@ require("dotenv").config({
 })
 
 console.log(
-  `This WordPress Endpoint is used: '${process.env.GATSBY_WORDPRESS_URL}'`
+  `This WordPress Endpoint is used: '${process.env.GATSBY_WORDPRESS_URL}'`,
 )
 
 module.exports = {
@@ -64,14 +64,14 @@ module.exports = {
     },
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
-     {
+    {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
           placeholder: `none`,
           quality: 100,
-        }
-      }
+        },
+      },
     },
     `gatsby-plugin-transition-link`,
     {
@@ -81,12 +81,12 @@ module.exports = {
           fonts: {
             google: [
               {
-                family: `DM Sans`,
-                variants: [`400`, `500`, `700`],
+                family: `Josefin Sans`,
+                variants: [`300`, `400`, `500`, `700`],
               },
               {
-                family: `Bebas Neue`,
-                variants: [`400`, `500`, `700`],
+                family: `Julius Sans One`,
+                variants: [`400`],
               },
             ],
           },

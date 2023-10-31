@@ -2,51 +2,51 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 const snipcart = theme => css`
-     .snipcart * {
-          font-family: ${theme.fonts.primaryFont} !important;
-     }
+  .snipcart * {
+    font-family: ${theme.fonts.primaryFont} !important;
+  }
 
-     .snipcart-cart__secondary-header {
-          background-color: ${theme.palette.primary.main} !important;
-          .snipcart__icon--darker path {
-               fill: white;
-          }
-          .snipcart-cart__secondary-header-title {
-               color: white;
-          }
-     }
+  .snipcart-cart__secondary-header {
+    background-color: ${theme.palette.primary.main} !important;
+    .snipcart__icon--darker path {
+      fill: white;
+    }
+    .snipcart-cart__secondary-header-title {
+      color: white;
+    }
+  }
 
-     .snipcart-cart-button,
-     .snipcart__box--badge-highlight {
-          background-color: ${theme.palette.primary.main} !important;
-          background-image: none !important;
-     }
+  .snipcart-cart-button,
+  .snipcart__box--badge-highlight {
+    background-color: ${theme.palette.primary.main} !important;
+    background-image: none !important;
+  }
 
-     .snipcart-cart-button--secondary {
-          .snipcart__icon path {
-               fill: white !important;
-          }
-          color: white !important;
-     }
+  .snipcart-cart-button--secondary {
+    .snipcart__icon path {
+      fill: white !important;
+    }
+    color: white !important;
+  }
 
-     .snipcart__icon--blue-light path,
-     .snipcart__icon--blue-dark path {
-          fill: ${theme.palette.primary.main} !important;
-     }
+  .snipcart__icon--blue-light path,
+  .snipcart__icon--blue-dark path {
+    fill: ${theme.palette.primary.main} !important;
+  }
 
-     .snipcart__actions--link,
-     .snipcart-discount-box__submit {
-          color: ${theme.palette.primary.main} !important;
-     }
+  .snipcart__actions--link,
+  .snipcart-discount-box__submit {
+    color: ${theme.palette.primary.main} !important;
+  }
 
-     .snipcart-discount-box__form,
-     .snipcart-input:focus-within {{
-          border: 1px solid ${theme.palette.primary.main} !important;
-     }
+  .snipcart-discount-box__form,
+  .snipcart-input:focus-within {
+    border: 1px solid ${theme.palette.primary.main} !important;
+  }
 
-          .snipcart-overwrite #snipcart-footer #snipcart-powered {
-               display: none !important;
-          }
+  .snipcart-overwrite #snipcart-footer #snipcart-powered {
+    display: none !important;
+  }
 `
 
 const wordpress = css`
@@ -194,9 +194,6 @@ export const GlobalStyles = theme => css`
     min-height: 100vh;
     flex-direction: column;
   }
-
-  ${wordpress}
-  ${snipcart}
 `
 
 export const LayoutTitle = styled.h2`
@@ -213,5 +210,13 @@ export const AppContainer = styled.main`
   flex: 1;
   flex-direction: column;
   padding-top: ${({ theme }) => theme.navHeight}px;
+  ${({ theme }) => theme.breakpoints.up("sm")} {
+    padding-top: 0;
+  }
   background-color: #f8fdff;
+  ${({ hiddenheader }) =>
+    hiddenheader &&
+    css`
+      padding-top: 0;
+    `}
 `

@@ -1,11 +1,11 @@
 import { createTheme } from "@mui/material/styles"
 
 const theme = createTheme({
-  navHeight: 74,
+  navHeight: 64,
   sectionPadding: "padding-top: 1.5em; padding-bottom: 1.5em;",
   fonts: {
-    primary: "DM Sans, sans-serif",
-    secondary: "Bebas Neue, sans-serif",
+    primary: "Josefin Sans, sans-serif",
+    secondary: "Julius Sans One, sans-serif",
   },
   layout: {
     contentWidth: 1236,
@@ -13,22 +13,22 @@ const theme = createTheme({
   palette: {
     primary: {
       // contrastText: "rgba(0, 0, 0, 0.87)",
-      main: "#F26B2A",
-      light: "#FFFFFF",
-      dark: "#091118",
+      main: "#63A8BE",
+      light: "#274747",
+      dark: "#70797A",
     },
     secondary: {
       // contrastText: "rgba(0, 0, 0, 0.87)",
-      main: "#261003",
-      light: "#1F1D2F",
+      main: "#4A97AF",
+      light: "#E9E9E9",
       dark: "#1F1D2F",
     },
     tertiary: {
       main: "#2C9ED0",
     },
     text: {
-      primary: "#261003",
-      secondary: "#F26B2A",
+      primary: "#363636",
+      secondary: "#F5F5F2",
       content: "#000000",
       tertiary: "#1A2933",
       disabled: "#10355A",
@@ -41,7 +41,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: `"DM Sans", "Open Sans", "Arial", sans-serif`,
+    fontFamily: `"Josefin Sans", "Julius Sans One", "Arial", sans-serif`,
   },
 })
 

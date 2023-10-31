@@ -1,0 +1,39 @@
+[
+    {
+        "title": "Inicio",
+        "url": "/"
+    },
+    {
+        "title": "Reservar",
+        "url": "/reservaciones"
+    },
+    {
+        "title": "Menú",
+        "items": [
+            {
+                "title": "Carta de alimentos",
+                "url": "#"
+            },
+            {
+                "title": "Menú del día",
+                "url": "#"
+            },
+            {
+                "title": "Bebidas",
+                "url": "#"
+            },
+            {
+                "title": "Carta de vinos",
+                "url": "#"
+            }
+        ]
+    },
+    {
+        "title": "Conócenos",
+        "url": "#"
+    },
+    {
+        "title": "Contacto",
+        "url": "#"
+    }
+]

@@ -49,10 +49,28 @@ export const query = graphql`
           ... on WpPage_Pagebuilder_Layouts_MiscContent {
             ...MiscContent
           }
+          ... on WpPage_Pagebuilder_Layouts_HomeHero {
+            ...HomeHero
+          }
+          ... on WpPage_Pagebuilder_Layouts_AboutUs {
+            ...AboutUs
+          }
+          ... on WpPage_Pagebuilder_Layouts_MeetUs {
+            ...MeetUs
+          }
+          ... on WpPage_Pagebuilder_Layouts_TestimonialsSlider {
+            ...TestimonialsSlider
+          }
+          ... on WpPage_Pagebuilder_Layouts_AboutHero {
+            ...AboutHero
+          }
+          ... on WpPage_Pagebuilder_Layouts_ImagesGallery {
+            ...ImagesGallery
+          }
         }
         pageConfiguration {
           hideFooter
-          hideHeaderItems
+          hideHeader
         }
       }
     }

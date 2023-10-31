@@ -12,6 +12,7 @@ const CustomImage = ({
   loading = "lazy",
   withFallback = false,
   fit = "contain",
+  role,
   ...props
 }) => {
   if (!img) return null
@@ -34,7 +35,13 @@ const CustomImage = ({
   if (image) {
     return (
       <S.Wrapper paddingpercentage={arPaddingPercentage} className={className}>
-        <GatsbyImage image={image} loading={loading} alt={imgAlt} {...props} />
+        <GatsbyImage
+          image={image}
+          loading={loading}
+          alt={imgAlt}
+          role={role}
+          {...props}
+        />
       </S.Wrapper>
     )
   }
@@ -47,7 +54,7 @@ const CustomImage = ({
         className={className}
         {...props}
       >
-        <img src={img.sourceUrl ? img.sourceUrl : img} alt={alt} />
+        <img src={img.sourceUrl ? img.sourceUrl : img} alt={alt} role={role} />
       </S.Wrapper>
     )
   }
