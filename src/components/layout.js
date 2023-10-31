@@ -11,12 +11,12 @@ import Header from "../components/header/header.component"
 import { AppContainer } from "../styles/app.styles"
 import Footer from "./footer/footer.component"
 
-const Layout = ({ children, hideHeader }) => {
+const Layout = ({ children, hideHeader, hideFooter }) => {
   return (
     <>
       {!hideHeader && <Header />}
       <AppContainer hiddenheader={hideHeader}>{children}</AppContainer>
-      <Footer />
+      {!hideFooter && <Footer />}
     </>
   )
 }

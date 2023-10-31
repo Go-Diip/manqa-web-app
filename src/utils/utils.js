@@ -1,7 +1,5 @@
-import queryString from "query-string"
-import Cookies from "js-cookie"
-import { gravityFormsApi, HUBSPOT_API, IPIFY_API } from "../apis/apis"
-import CryptoJS from "crypto-js"
+import dayjs from "dayjs"
+import { whatsappTemplates } from "./constants"
 
 export const isBrowser = typeof window !== "undefined"
 
@@ -15,6 +13,23 @@ export const getLocalStorageItem = key => {
 export const setLocalStorageItem = (key, value) => {
   if (isBrowser) {
     window.localStorage.setItem(key, value)
+  }
+}
+
+export const catchAsync = (fn, fnName = "anonymous function") => {
+  return async (...props) => {
+    return await fn(...props)
+      .then(res => {
+        if (res?.status === "error") {
+          throw new Error(res?.message)
+        }
+        return res
+      })
+      .catch(err => {
+        console.error(fnName, err.message ?? "Something was wrong")
+        // console.error(fnName, err);
+        return err
+      })
   }
 }
 
@@ -36,7 +51,7 @@ export const getColor = (color, theme) => {
 export const textEllipsis = (
   str,
   maxLength,
-  { side = "end", ellipsis = "..." } = {}
+  { side = "end", ellipsis = "..." } = {},
 ) => {
   if (str.length > maxLength) {
     switch (side) {
@@ -50,116 +65,97 @@ export const textEllipsis = (
   return str
 }
 
-export const setFormUtmParams = setValue => {
-  if (typeof window !== "undefined" && window) {
-    const parameters = window.location.search
-      ? queryString.parse(window.location.search)
-      : ""
-    const params = [
-      "utm_medium",
-      "utm_source",
-      "utm_campaign",
-      "utm_content",
-      "utm_term",
-      "utm_name",
-    ]
-    if (parameters !== "") {
-      params.map(param => {
-        if (param in parameters) {
-          setValue(param, parameters[param])
-        }
-      })
+export const evaluateDate = (date, daysOfWeek) => {
+  if (!date || !daysOfWeek) return
+  const dateObj = dayjs(date)
+  const dayOfWeekName = dateObj.format("dddd")
+  return daysOfWeek.includes(dayOfWeekName)
+}
+
+export const getRHFErrorMessage = (errors, name, rules) => {
+  const splitName = `${name}`.split(".")
+  const getError = () => {
+    if (splitName.length === 2) {
+      return errors[splitName[0]]?.[splitName[1]]
+    }
+    if (splitName.length === 3) {
+      return errors[splitName[0]]?.[splitName[1]]?.[splitName[2]]
+    }
+    return errors[name]
+  }
+  const error = getError()
+
+  if (error) {
+    // console.log(name, error);
+    switch (error.type) {
+      case "valueAsNumber":
+        return `${name} is not a valid number`
+      case "required":
+        return error?.message ? error.message : "This is a required field"
+      case "min":
+        return `Min ${rules.min}`
+      case "max":
+        return `Max ${rules.max}`
+      case "maxLength":
+        return `Text too long. Max ${rules.maxLength}`
+      case "minLength":
+        return `Text too short. Min ${rules.minLength}`
+      case "pattern":
+        return `${name} is not valid`
+      case "validate":
+        //console.log(errors)
+        return error.message
+      default:
+        return error.message
     }
   }
 }
 
-export const submitHubspotForm = async (data, portalId, formId) => {
-  let fields = []
-  Object.entries(data).map(item => {
-    fields.push({ name: item[0], value: item[1] })
-  })
+export const validatePhone = number => number?.match(/\d/g)?.length === 10
 
-  const hutk = isBrowser ? Cookies.get("hubspotutk") : null
-  const pageUri = isBrowser ? window.location.href : null
-  const pageName = isBrowser ? document.title : null
-  const ipAddress = await IPIFY_API.get()
+export const emailRegex =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-  const context =
-    ipAddress && ipAddress.data.ip
-      ? {
-          ipAddress: ipAddress.data.ip,
-          hutk,
-          pageUri,
-          pageName,
-        }
-      : {
-          hutk,
-          pageUri,
-          pageName,
-        }
+export const isInTimeRange = (time, startTime, endTime) => {
+  const today = dayjs().format("YYYY/MM/DD")
+  const startDate = dayjs(`${today} ${startTime}`)
+  // console.log("startDate :>> ", startDate)
+  const endDate = dayjs(`${today} ${endTime}`)
+  // console.log("endDate :>> ", endDate)
+  const selectedDate = dayjs(`${today} ${time}`)
+  // console.log("selectedDate :>> ", selectedDate)
+  return (
+    selectedDate.isSame(startDate) ||
+    selectedDate.isSame(endDate) ||
+    selectedDate.isBetween(startDate, endDate)
+  )
+}
 
-  try {
-    const res = await HUBSPOT_API.post(
-      `/${portalId}/${formId}`,
-      JSON.stringify({
-        submittedAt: Date.now(),
-        fields,
-        context,
-      }),
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept:
-            "application/json, application/xml, text/plain, text/html, *.*",
-        },
-      }
-    )
-
-    return res
-  } catch (e) {
-    return e.response
+export const sendWhatsappMsg = catchAsync(async (text, phone) => {
+  if (!phone) {
+    console.log("No phone provided. Was not able to send WhatsApp message.")
+    return
   }
-}
-
-const calculateSignature = (stringToSign, privateKey) => {
-  const hash = CryptoJS.HmacSHA1(stringToSign, privateKey)
-  const base64 = hash.toString(CryptoJS.enc.Base64)
-  return encodeURIComponent(base64)
-}
-
-export const submitGravityForm = (data, formId) => {
-  const d = new Date(),
-    expiration = 3600,
-    unixtime = parseInt(d.getTime() / 1000),
-    future_unixtime = unixtime + expiration,
-    publicKey = process.env.GF_PUB_KEY,
-    privateKey = process.env.GF_PRIV_KEY,
-    method = "POST",
-    route = `forms/${formId}/submissions`,
-    stringToSign =
-      publicKey + ":" + method + ":" + route + ":" + future_unixtime,
-    sig = calculateSignature(stringToSign, privateKey)
-
-  const uri =
-    route +
-    "?api_key=" +
-    publicKey +
-    "&signature=" +
-    sig +
-    "&expires=" +
-    future_unixtime
-
-  const values = {
-    input_values: {
-      data,
+  // return await window.fetch(`/.netlify/functions/send-whatsapp-message`, {
+  return await window.fetch(`/api/send-whatsapp-message`, {
+    method: `POST`,
+    headers: {
+      "content-type": "application/json",
     },
-  }
+    body: JSON.stringify({ text, phone }),
+  })
+})
 
-  return gravityFormsApi
-    .post(uri, values, {
-      headers: { "Content-Type": "application/json" },
-    })
-    .then(response => {
-      return response
-    })
+export const getWhatsappTemplateMsg = (templateName, data) => {
+  const { firstName, lastName, date } = data
+  switch (templateName) {
+    case whatsappTemplates.RESERVATION_NEW:
+      return `Nueva reservación de ${firstName} ${lastName} para el día ${date}.`
+    case whatsappTemplates.RESERVATION_CONFIRMED:
+      return `Hola, ${firstName}. Tu reservación el día ${date} esta confirmada. Cuentas con 10 minutos de espera desde la hora de tu reservación. Para retrasos o cambios comunícate con nosotros al 099 770 2994.`
+    case whatsappTemplates.RESERVATION_NOT_AVAILABLE:
+      return `Hola, ${firstName}. No disponemos de mesas en el horario solicitado. Puedes comunicarte con nuestro equipo o visitar nuestra página web para conocer nuestra disponibilidad en próximos horarios.`
+    case whatsappTemplates.RESERVATION_CANCELED:
+      return `Tu reservación ha sido cancelada. Te esperamos en Banh Mi en una próxima ocasión.`
+  }
 }
