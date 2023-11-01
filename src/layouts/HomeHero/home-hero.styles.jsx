@@ -84,7 +84,7 @@ export const Name = styled(Typography)`
 
 export const SlideImage = styled(CustomImage)`
   /* position: absolute; */
-  height: 100vh;
+  height: var(--viewport-height, 100vh);
   min-height: 600px;
   max-height: 1000px;
   img {
