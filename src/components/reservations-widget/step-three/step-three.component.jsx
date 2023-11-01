@@ -51,12 +51,12 @@ const StepThree = ({ errorMessage }) => {
             values[3]
           }`}</Typography>
         </S.ReviewBox>
-        <S.ReviewBox>
+        {/* <S.ReviewBox>
           <label>Lugar</label>
           <Typography style={{ textTransform: "capitalize" }}>
             {values[4]}
           </Typography>
-        </S.ReviewBox>
+        </S.ReviewBox> */}
         <WidgetSelect
           options={reasonOptions}
           name="occasion"
@@ -74,9 +74,7 @@ const StepThree = ({ errorMessage }) => {
             Alergias, tipo de mesa, otros
           </Typography>
           <WidgetTextField
-            // label="Requerimiento especial"
             name="notes"
-            // {...register("notes")}
             inputProps={{ maxLength: 120 }}
             placeholder="Escribe aquí tu nota..."
             multiline

@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: #f7f7f7;
-  margin-top: -${({ theme }) => theme.navHeight}px;
   position: relative;
   &:after {
     content: "";
@@ -48,6 +47,9 @@ export const Wrapper = styled.div`
     align-items: center;
     svg {
       margin-left: 0.25em;
+    }
+    :hover {
+      background-color: #2a6b80;
     }
   }
 `
@@ -102,10 +104,10 @@ export const StepsWrapper = styled.div`
 export const Subtitle = styled(Typography)`
   font-size: ${({ theme }) => theme.typography.pxToRem(18)};
   font-weight: 500;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem;
   ${({ theme }) => theme.breakpoints.up("md")} {
     margin-bottom: 1rem;
-  }
+  } */
 `
 
 export const Disclaimer = styled.div`

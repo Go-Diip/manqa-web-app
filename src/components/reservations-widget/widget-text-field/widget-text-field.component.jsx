@@ -14,6 +14,7 @@ const CustomInput = ({
   multiline,
   defaultValue = "",
   placeholder,
+  margin = "normal",
   required,
   ...otherProps
 }) => {
@@ -36,7 +37,7 @@ const CustomInput = ({
       render={({ field }) => (
         <S.CustomInput
           error={!!error}
-          margin="normal"
+          margin={margin}
           InputLabelProps={{ shrink: true }}
           required={!!validations?.required}
           variant={variant}

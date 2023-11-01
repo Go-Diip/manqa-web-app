@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import * as S from "./header.styles.jsx"
 import { Collapse, Container, Stack, useScrollTrigger } from "@mui/material"
 import Logo from "../../assets/logo.svg"
@@ -8,19 +8,32 @@ import MenuIcon from "../../assets/menu.svg"
 import AddIcon from "@mui/icons-material/Add"
 import RemoveIcon from "@mui/icons-material/Remove"
 import { RESERVATIONS_ENABLED } from "../../utils/constants"
+import { isBrowser } from "../../utils/utils.js"
 
-const Header = () => {
+const Header = ({ isHome }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isOpenDropdown, setIsOpenDropdown] = useState(true)
   const menuItems = HEADER_ITEMS.find(item => item.title === "Menú")?.items
+  const viewportHeight = isBrowser ? window.innerHeight : 1000
   const scrollTrigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 100,
+    threshold: isHome ? viewportHeight : 100,
   })
+
+  useEffect(() => {
+    if (!scrollTrigger && isHome) {
+      // setIsOpenDropdown(false)
+      setIsMenuOpen(false)
+    }
+  }, [scrollTrigger])
 
   return (
     <>
-      <S.Header elevation={scrollTrigger ? 4 : 0} position="relative">
+      <S.Header
+        elevation={scrollTrigger ? 4 : 0}
+        position="relative"
+        className={isHome ? "home" : ""}
+      >
         <Container>
           <S.LogoWrapper url="/">
             <Logo />
@@ -32,13 +45,18 @@ const Header = () => {
           </S.LinksWrapper>
           <S.MobileWrapper>
             {RESERVATIONS_ENABLED && (
-              <S.StyledLink url="/reservaciones">Reservar</S.StyledLink>
+              <S.StyledLink url="/reservaciones" style={{ color: "#274747" }}>
+                Reservar
+              </S.StyledLink>
             )}
             <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)} />
           </S.MobileWrapper>
         </Container>
       </S.Header>
-      <S.MobileMenu onClick={() => setIsOpenDropdown(!isOpenDropdown)}>
+      <S.MobileMenu
+        onClick={() => setIsOpenDropdown(!isOpenDropdown)}
+        className={isHome ? "home" : ""}
+      >
         <Collapse in={isMenuOpen} unmountOnExit>
           <Container>
             <S.MenuTitle>Menu</S.MenuTitle>

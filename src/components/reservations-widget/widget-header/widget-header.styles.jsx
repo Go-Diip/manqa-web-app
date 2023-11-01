@@ -16,7 +16,4 @@ export const Wrapper = styled.div`
 export const CustomLogo = styled(Logo)`
   height: 40px;
   width: auto;
-  ${({ theme }) => theme.breakpoints.up("md")} {
-    height: 80px;
-  }
 `

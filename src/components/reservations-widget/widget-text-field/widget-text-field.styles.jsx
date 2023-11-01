@@ -9,8 +9,7 @@ export const Title = styled(Typography)`
 `
 
 export const CustomInput = styled(TextField)`
-  color: ${({ theme }) => theme.palette.text.main};
-
+  width: 100%;
   label {
     color: rgba(0, 0, 0, 0.23);
   }

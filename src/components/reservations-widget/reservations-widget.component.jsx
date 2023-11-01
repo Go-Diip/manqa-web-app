@@ -20,7 +20,6 @@ import {
 import { TIME_STATUSES, whatsappTemplates } from "../../utils/constants"
 import {
   evaluateDate,
-  getFormattedReservationData,
   getWhatsappTemplateMsg,
   sendWhatsappMsg,
 } from "../../utils/utils"
@@ -50,11 +49,19 @@ const ReservationsWidget = () => {
   const [overviewData, setOverviewData] = useState(null)
   const [overviewText, setOverviewText] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
+  const [isFirstRender, setIsFirstRender] = useState(true)
+  const [timesArray, setTimesArray] = useState([])
   const handleGetData = async () => {
     const res = await getLocationInfo()
     // console.log("res :>> ", res)
+    const data = res?.data?.data
     if (res?.status === "success") {
-      return res.data?.data
+      setTimesArray(
+        getTimesArray(data.openTime, data.closeTime, +data.interval),
+      )
+      setValue("area", data.areas[0]?.name)
+      setIsFirstRender(false)
+      return data
     }
   }
 
@@ -65,20 +72,18 @@ const ReservationsWidget = () => {
   } = useQuery({
     queryKey: ["reservations"],
     queryFn: handleGetData,
+    refetchInterval: 10000,
   })
-
   // console.log("locationInfo :>> ", locationInfo)
   const areas = locationInfo?.areas
 
-  const timesArray = getTimesArray(
-    locationInfo?.openTime,
-    locationInfo?.closeTime,
-    +locationInfo?.interval,
-  )
   const [availableTimes, setAvailableTimes] = useState([])
   const methods = useForm({
     mode: "onBlur",
     reValidateMode: "onBlur",
+    defaultValues: {
+      date: dayjs(),
+    },
   })
 
   const { watch, setValue, trigger } = methods
@@ -118,10 +123,10 @@ const ReservationsWidget = () => {
 
     console.log("whatsappRes :>> ", whatsappRes)
 
-    // setOverviewData({
-    //   ...date,
-    //   date: `${jsDate.format("DD/MM/YYYY")} a las ${data.time}`,
-    // })
+    setOverviewData({
+      ...data,
+      date: `${jsDate.format("DD/MM/YYYY")} a las ${data.time}`,
+    })
     setIsLoading(false)
   }
   // console.log("isOpenDay :>> ", isOpenDay)
@@ -129,7 +134,7 @@ const ReservationsWidget = () => {
   const handleChangeDate = async () => {
     const availability = await evaluateCalendarDate(
       timesArray,
-      reservationDate,
+      reservationDate?.format("YYYY-MM-DD"),
       isOpenDay,
     )
     // console.log("availability :>> ", availability)
@@ -142,9 +147,9 @@ const ReservationsWidget = () => {
   }
 
   useEffect(() => {
-    // if (!reservationDate) return
+    if (isFirstRender) return
     handleChangeDate()
-  }, [reservationDate])
+  }, [reservationDate, isFirstRender, timesArray])
 
   useEffect(() => {
     const currentTime = dayjs()
@@ -250,7 +255,7 @@ const ReservationsWidget = () => {
         >
           <Grid container spacing={5} alignItems="center">
             <Grid item xs={12} sm={6}>
-              <S.ModalName>Hola {overviewData?.name}</S.ModalName>
+              <S.ModalName>Hola {overviewData?.firstName}</S.ModalName>
               <S.ModalDescription>{overviewText}</S.ModalDescription>
             </Grid>
             <Grid item xs={12} sm={6}>

@@ -14,7 +14,10 @@ const WidgetSelect = ({
   labelKey = "label",
   ...otherProps
 }) => {
-  const { control } = useFormContext()
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext()
 
   return (
     <S.Wrapper variant="outlined" fullWidth>
@@ -54,7 +57,7 @@ const WidgetSelect = ({
             </Select>
             {fieldState.error && (
               <FormHelperText style={{ color: "#f44336" }}>
-                This is a required field
+                {fieldState.error.message}
               </FormHelperText>
             )}
           </>

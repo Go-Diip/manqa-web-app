@@ -7,12 +7,12 @@ import { catchAsync } from "./utils"
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
-export const getToken = async () => {
-  const tokenRes = await window.fetch(`/api/get-token`)
-  const response = await tokenRes.json()
-  const token = response?.token
-  return token
-}
+// export const getToken = async () => {
+//   const tokenRes = await window.fetch(`/api/get-token`)
+//   const response = await tokenRes.json()
+//   const token = response?.token
+//   return token
+// }
 
 export const getLocationInfo = catchAsync(async () => {
   const res = await reservationsApi.get(`locations/${LOCATION_ID}`)
@@ -21,35 +21,35 @@ export const getLocationInfo = catchAsync(async () => {
 }, "getLocationInfo")
 
 export const getExceptionalTimes = catchAsync(async () => {
-  const token = getToken()
+  // const token = getToken()
   const res = await reservationsApi.post(
     `exceptional-times/future-exceptional-times`,
     {
       clientId: CLIENT_ID,
     },
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    },
+    // {
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //     "Content-Type": "application/json",
+    //   },
+    // },
   )
   return res?.data
 }, "getExceptionalTimes")
 
 export const getBlockedTimes = catchAsync(async () => {
-  const token = getToken()
+  // const token = getToken()
   const res = await reservationsApi.post(
     `block-times/future-block-times`,
     {
       clientId: CLIENT_ID,
     },
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    },
+    // {
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //     "Content-Type": "application/json",
+    //   },
+    // },
   )
   // console.log("res :>> ", res);
   return res?.data
@@ -84,15 +84,18 @@ export const evaluateCalendarDate = async (
   formattedDate,
   isOpenDay,
 ) => {
+  // console.log("timesArray :>> ", timesArray)
+  // console.log("formattedDate :>> ", formattedDate)
   const exceptRes = await getExceptionalTimes()
   const exceptionalTimes = formatDatesArr(exceptRes?.data?.exceptionalTimes)
-  // console.log("exceptionalTimes :>> ", exceptionalTimes);
+  // console.log("exceptionalTimes :>> ", exceptionalTimes)
   const blockedRes = await getBlockedTimes()
   const blockedTimes = formatDatesArr(blockedRes?.data?.blockTimes)
-  // console.log("blockedTimes :>> ", blockedTimes);
+  // console.log("blockedTimes :>> ", blockedTimes)
   const newTimes = timesArray
     ?.map(item => {
       const itemDate = dayjs(`${formattedDate} ${item.value}`)
+      // console.log("itemDate :>> ", itemDate)
       const findBlocked = blockedTimes.find(blocked =>
         blocked.date.isSame(itemDate),
       )

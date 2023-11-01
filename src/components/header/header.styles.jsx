@@ -19,6 +19,16 @@ export const Header = styled(AppBar)`
       flex-direction: column;
     }
   }
+  &.home {
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    transition: all 0.3s ease-in-out;
+    &.MuiPaper-elevation4 {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
   ${({ theme }) => theme.breakpoints.up("md")} {
     padding-top: 1.75rem;
     padding-bottom: 1.25rem;
