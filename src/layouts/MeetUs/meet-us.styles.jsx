@@ -13,13 +13,13 @@ export const TextWrapper = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
-  padding: 1.5rem;
-  ${({ theme }) => theme.breakpoints.up("sm")} {
+  padding: 5rem 1.5rem;
+  /* ${({ theme }) => theme.breakpoints.up("sm")} {
     padding: 3rem 2rem;
   }
   ${({ theme }) => theme.breakpoints.up("md")} {
     padding: 4rem 3rem;
-  }
+  } */
   ${({ theme }) => theme.breakpoints.up("lg")} {
     padding: 4rem 8.5rem;
   }

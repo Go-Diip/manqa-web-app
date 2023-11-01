@@ -100,15 +100,16 @@ export const ItemText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: ${({ theme }) => theme.palette.primary.main};
+  background-color: rgba(238, 239, 236, 0.9);
   padding: 1rem 1.25rem;
   ${({ theme }) => theme.breakpoints.up("sm")} {
+    background-color: ${({ theme }) => theme.palette.text.light};
     padding: 1rem 1.375rem;
   }
 `
 
 export const ItemTitle = styled(Typography)`
-  color: ${({ theme }) => theme.palette.text.secondary};
+  color: #2c6371;
   text-align: center;
   font-size: ${({ theme }) => theme.typography.pxToRem("10")};
   font-weight: 300;

@@ -42,7 +42,24 @@ const Footer = () => {
           <S.InfoText className="diip">
             ©Manqa 2023. Desarrollado por{" "}
             <span className="underline">Diip.</span>
+            <Stack
+              display={{ xs: "flex", md: "none" }}
+              direction={{ xs: "column", md: "row" }}
+              spacing={{ xs: 1, md: 3 }}
+              marginTop={{ xs: 1 }}
+            >
+              <S.InfoAnchor href="#">Políticas de privacidad</S.InfoAnchor>
+              <S.InfoAnchor href="#">Términos y condiciones</S.InfoAnchor>
+            </Stack>
           </S.InfoText>
+          <Stack
+            display={{ xs: "none", md: "flex" }}
+            direction={{ xs: "column", md: "row" }}
+            spacing={{ xs: 1, md: 3 }}
+          >
+            <S.InfoAnchor href="#">Políticas de privacidad</S.InfoAnchor>
+            <S.InfoAnchor href="#">Términos y condiciones</S.InfoAnchor>
+          </Stack>
           <Stack
             spacing={{ xs: 5, md: 7.5 }}
             direction="row"

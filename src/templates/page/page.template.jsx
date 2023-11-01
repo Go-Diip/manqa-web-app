@@ -71,6 +71,7 @@ export const query = graphql`
         pageConfiguration {
           hideFooter
           hideHeader
+          isHome
         }
       }
     }
