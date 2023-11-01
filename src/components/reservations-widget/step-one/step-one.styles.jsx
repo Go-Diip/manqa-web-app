@@ -23,28 +23,12 @@ export const Wrapper = styled.div`
     }
   }
 
-  ${({ theme }) => theme.breakpoints.up("lg")} {
-    .MuiGrid-item {
-      &:first-of-type {
-        .MuiInputBase-root {
-          border-top-left-radius: 4px;
-          border-bottom-left-radius: 4px;
-        }
-      }
-
-      &:nth-of-type(2) {
-        fieldset {
-          border-left-color: transparent;
-          border-right-color: transparent;
-        }
-      }
-    }
-
+  /* ${({ theme }) => theme.breakpoints.up("lg")} {
     .continueBtn {
       border-top-left-radius: 0 !important;
       border-bottom-left-radius: 0 !important;
     }
-  }
+  } */
 `
 
 export const DatePicketWrapper = styled.div`
