@@ -40,8 +40,14 @@ const Footer = () => {
         </Grid>
         <S.BottomWrapper>
           <S.InfoText className="diip">
-            ©Manqa 2023. Desarrollado por{" "}
-            <span className="underline">Diip.</span>
+            ©Manqa {new Date().getFullYear()}. Desarrollado por{" "}
+            <a
+              href="https://godiip.com/?utm_source=manqa+powered+by+link&utm_medium=link+on+bottom+of+website&utm_campaign=manqa+powered+by+link"
+              className="underline"
+              target="_blank"
+            >
+              Diip.
+            </a>
             <Stack
               display={{ xs: "flex", md: "none" }}
               direction={{ xs: "column", md: "row" }}
@@ -66,16 +72,25 @@ const Footer = () => {
             justifyContent={{ xs: "space-between", md: "flex-end" }}
             alignItems="center"
           >
-            <a>
+            <a
+              href="https://instagram.com/manqa.uio?igshid=MzMyNGUyNmU2YQ=="
+              target="_blank"
+            >
               <Instagram />
             </a>
-            <a>
+            <a
+              href="https://www.facebook.com/profile.php?id=100093669645253&mibextid=LQQJ4d"
+              target="_blank"
+            >
               <Facebook />
             </a>
-            <a>
+            <a
+              href="https://www.tripadvisor.com/Restaurant_Review-g294308-d26712527-Reviews-Manqa_by_Muru-Quito_Pichincha_Province.html"
+              target="_blank"
+            >
               <Tripadvisor />
             </a>
-            <a>
+            <a href="https://maps.app.goo.gl/KLeaoH9y4Y5KbaJy7" target="_blank">
               <Google />
             </a>
           </Stack>

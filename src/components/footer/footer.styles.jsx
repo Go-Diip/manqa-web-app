@@ -28,6 +28,7 @@ export const InfoText = styled.div`
   line-height: 2rem;
   .underline {
     text-decoration: underline;
+    color: ${({ theme }) => theme.palette.text.primary};
   }
   &.diip {
     ${({ theme }) => theme.breakpoints.down("sm")} {
