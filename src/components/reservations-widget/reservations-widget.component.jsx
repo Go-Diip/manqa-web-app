@@ -17,12 +17,8 @@ import {
   getLocationInfo,
   getTimesArray,
 } from "../../utils/reservations-api"
-import { TIME_STATUSES, whatsappTemplates } from "../../utils/constants"
-import {
-  evaluateDate,
-  getWhatsappTemplateMsg,
-  sendWhatsappMsg,
-} from "../../utils/utils"
+import { TIME_STATUSES } from "../../utils/constants"
+import { evaluateDate } from "../../utils/utils"
 import dayjs from "dayjs"
 // import { sendGtagReservationMadeEvent } from "../../gtag-utils"
 // import addToMailchimp from "gatsby-plugin-mailchimp"
@@ -112,16 +108,6 @@ const ReservationsWidget = () => {
       setErrorMessage(reservationRes?.message ?? "Something was wrong")
       return
     }
-
-    const whatsappRes = await sendWhatsappMsg(
-      getWhatsappTemplateMsg(whatsappTemplates.RESERVATION_NEW, {
-        ...data,
-        date: `${jsDate.format("DD/MM/YYYY")} a las ${data.time}`,
-      }),
-      process.env.GATSBY_ADMIN_PHONE,
-    )
-
-    console.log("whatsappRes :>> ", whatsappRes)
 
     setOverviewData({
       ...data,

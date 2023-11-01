@@ -20,7 +20,7 @@ export const TIME_STATUSES = {
 }
 
 export const STATUSES = {
-  approved: "confirmed",
+  confirmed: "confirmed",
   pending: "pending",
   canceled: "canceled",
 }
