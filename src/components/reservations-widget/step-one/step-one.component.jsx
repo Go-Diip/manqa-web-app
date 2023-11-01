@@ -47,7 +47,7 @@ const StepOne = ({ setCurrentStep, availableTimes }) => {
                 <AccessTimeIcon />
               </InputAdornment>
             }
-            isRequired
+            isRequired="El campo es requerido"
           />
         </Grid>
         <Grid item xs={12} md>

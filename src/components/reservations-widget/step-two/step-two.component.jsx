@@ -78,21 +78,21 @@ const StepTwo = ({ setCurrentStep, areas }) => {
           <WidgetTextField
             name={inputNames[0]}
             label="Nombre"
-            required
+            required="El nombre es requerido"
             placeholder="Tu primer nombre"
             autoComplete="given-name"
           />
           <WidgetTextField
             name={inputNames[1]}
             label="Apellidos"
-            required
+            required="Los apellidos son requeridos"
             placeholder="Tus dos apellidos"
             autoComplete="family-name"
           />
           <WidgetTextField
             name={inputNames[2]}
             label="Teléfono"
-            required="Por favor ingresa un número válido de 10 digitos"
+            required="El teléfono es requerido"
             placeholder="Tu teléfono celular"
             // validate={validatePhone}
             validations={{
@@ -116,7 +116,7 @@ const StepTwo = ({ setCurrentStep, areas }) => {
 
           <WidgetTextField
             name={inputNames[3]}
-            required="Por favor ingresa un número válido de 10 digitos"
+            required="El email es requerido"
             label="Correo electrónico"
             placeholder="Tu correo electrónico"
             type="email"
