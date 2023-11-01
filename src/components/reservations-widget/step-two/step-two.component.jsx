@@ -72,26 +72,36 @@ const StepTwo = ({ setCurrentStep, areas }) => {
 
   return (
     <S.Wrapper>
-      <Grid container spacing={{ xs: 1, md: 4 }}>
-        <Grid item xs={12} md={7}>
+      <Grid container spacing={{ xs: 2, md: 2 }}>
+        <Grid item xs={12}>
           <Subtitle>Datos</Subtitle>
+        </Grid>
+        <Grid item xs={12} md={6}>
           <WidgetTextField
             name={inputNames[0]}
             label="Nombre"
+            margin="none"
             required="El nombre es requerido"
             placeholder="Tu primer nombre"
             autoComplete="given-name"
           />
+        </Grid>
+        <Grid item xs={12} md={6}>
           <WidgetTextField
             name={inputNames[1]}
+            margin="none"
             label="Apellidos"
             required="Los apellidos son requeridos"
             placeholder="Tus dos apellidos"
             autoComplete="family-name"
           />
+        </Grid>
+
+        <Grid item xs={12} md={6}>
           <WidgetTextField
             name={inputNames[2]}
             label="Teléfono"
+            margin="none"
             required="El teléfono es requerido"
             placeholder="Tu teléfono celular"
             // validate={validatePhone}
@@ -113,9 +123,11 @@ const StepTwo = ({ setCurrentStep, areas }) => {
               ),
             }}
           />
-
+        </Grid>
+        <Grid item xs={12} md={6}>
           <WidgetTextField
             name={inputNames[3]}
+            margin="none"
             required="El email es requerido"
             label="Correo electrónico"
             placeholder="Tu correo electrónico"
@@ -134,7 +146,19 @@ const StepTwo = ({ setCurrentStep, areas }) => {
             }}
           />
         </Grid>
-        <Grid item xs={12} md={5}>
+        <Grid item xs={6} md={3}>
+          <Button
+            fullWidth
+            className="continueBtn"
+            type="button"
+            onClick={handleNext}
+          >
+            Continuar
+            <ArrowForwardIcon />
+          </Button>
+        </Grid>
+
+        {/* <Grid item xs={12} md={5}>
           <Subtitle>Ambiente</Subtitle>
           <FormControl
             component="fieldset"
@@ -177,7 +201,7 @@ const StepTwo = ({ setCurrentStep, areas }) => {
             Continuar
             <ArrowForwardIcon />
           </Button>
-        </Grid>
+        </Grid> */}
       </Grid>
       <Disclaimer>
         <Typography>

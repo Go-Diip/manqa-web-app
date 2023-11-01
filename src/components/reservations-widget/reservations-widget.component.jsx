@@ -59,6 +59,7 @@ const ReservationsWidget = () => {
       setTimesArray(
         getTimesArray(data.openTime, data.closeTime, +data.interval),
       )
+      setValue("area", data.areas[0]?.name)
       setIsFirstRender(false)
       return data
     }
