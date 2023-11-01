@@ -2,7 +2,7 @@ import dayjs from "dayjs"
 
 export const IS_PRODUCTION = process.env.GATSBY_ACTIVE_ENV === "production"
 
-export const RESERVATIONS_ENABLED = false;
+export const RESERVATIONS_ENABLED = false
 
 export const CLIENT_ID = process.env.GATSBY_CLIENT_ID
 
@@ -20,7 +20,7 @@ export const TIME_STATUSES = {
 }
 
 export const STATUSES = {
-  approved: "confirmed",
+  confirmed: "confirmed",
   pending: "pending",
   canceled: "canceled",
 }

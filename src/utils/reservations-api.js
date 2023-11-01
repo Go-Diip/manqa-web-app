@@ -125,7 +125,7 @@ export const createReservation = catchAsync(async data => {
   const res = await reservationsApi.post(`reservations`, {
     clientId: CLIENT_ID,
     locationId: LOCATION_ID,
-    status: STATUSES.pending,
+    status: STATUSES.confirmed,
     ...data,
   })
   return res?.data
