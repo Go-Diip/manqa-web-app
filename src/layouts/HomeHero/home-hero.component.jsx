@@ -21,7 +21,7 @@ const HomeHero = ({ sliderItems }) => {
 
   return (
     <S.Section>
-      <S.Wrapper>
+      <S.Wrapper maxWidth="xl">
         <Box />
         <Box>
           <S.LogoWrapper>
