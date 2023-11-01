@@ -16,7 +16,7 @@ const MeetUs = ({ content, image, link }) => {
             <Box maxWidth="656px">
               <S.Content>{content}</S.Content>
               <Box display="flex" justifyContent={{ md: "flex-end" }}>
-                <S.StyledAnchor href={link.url}>
+                <S.StyledAnchor url={link.url}>
                   Conócenos
                   <ArrowForwardIosRoundedIcon />
                 </S.StyledAnchor>
@@ -26,10 +26,7 @@ const MeetUs = ({ content, image, link }) => {
         </Grid>
         <Grid item xs={12} md={6}>
           <S.ImageWrapper>
-            <S.StyledImage
-              img={image}
-              arPaddingPercentage={upMd ? null : "55"}
-            />
+            <S.StyledImage img={image} arPaddingPercentage={upMd ? null : 55} />
           </S.ImageWrapper>
         </Grid>
       </Grid>

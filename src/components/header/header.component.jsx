@@ -45,7 +45,9 @@ const Header = ({ isHome }) => {
           </S.LinksWrapper>
           <S.MobileWrapper>
             {RESERVATIONS_ENABLED && (
-              <S.StyledLink url="/reservaciones">Reservar</S.StyledLink>
+              <S.StyledLink url="/reservaciones" style={{ color: "#274747" }}>
+                Reservar
+              </S.StyledLink>
             )}
             <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)} />
           </S.MobileWrapper>

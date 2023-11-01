@@ -22,7 +22,7 @@ export const Line = styled.div`
   }
 `
 
-export const InfoText = styled(Typography)`
+export const InfoText = styled.div`
   font-size: 1.125rem;
   font-weight: 300;
   line-height: 2rem;
