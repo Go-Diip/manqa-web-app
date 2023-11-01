@@ -71,8 +71,8 @@ const ReservationsWidget = () => {
   } = useQuery({
     queryKey: ["reservations"],
     queryFn: handleGetData,
+    refetchInterval: 10000,
   })
-
   // console.log("locationInfo :>> ", locationInfo)
   const areas = locationInfo?.areas
 
@@ -148,7 +148,7 @@ const ReservationsWidget = () => {
   useEffect(() => {
     if (isFirstRender) return
     handleChangeDate()
-  }, [reservationDate, isFirstRender])
+  }, [reservationDate, isFirstRender, timesArray])
 
   useEffect(() => {
     const currentTime = dayjs()
