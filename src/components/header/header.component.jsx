@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import * as S from "./header.styles.jsx"
 import { Collapse, Container, Stack, useScrollTrigger } from "@mui/material"
 import Logo from "../../assets/logo.svg"
@@ -20,13 +20,6 @@ const Header = ({ isHome }) => {
     threshold: isHome ? viewportHeight : 100,
   })
 
-  useEffect(() => {
-    if (!scrollTrigger && isHome) {
-      // setIsOpenDropdown(false)
-      setIsMenuOpen(false)
-    }
-  }, [scrollTrigger])
-
   return (
     <>
       <S.Header
@@ -45,7 +38,7 @@ const Header = ({ isHome }) => {
           </S.LinksWrapper>
           <S.MobileWrapper>
             {RESERVATIONS_ENABLED && (
-              <S.StyledLink url="/reservaciones" style={{ color: "#274747" }}>
+              <S.StyledLink url="/reservaciones" style={{ color: "#4A97AF" }}>
                 Reservar
               </S.StyledLink>
             )}

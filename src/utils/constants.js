@@ -2,7 +2,7 @@ import dayjs from "dayjs"
 
 export const IS_PRODUCTION = process.env.GATSBY_ACTIVE_ENV === "production"
 
-export const RESERVATIONS_ENABLED = false
+export const RESERVATIONS_ENABLED = true
 
 export const CLIENT_ID = process.env.GATSBY_CLIENT_ID
 
