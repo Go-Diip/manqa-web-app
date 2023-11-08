@@ -38,10 +38,14 @@ const AboutUs = ({ title, description, items }) => {
                 key={`item-${index}`}
                 direction={index % 2 ? "row-reverse" : "row"}
               >
-                <Grid item xs={6} md={7}>
-                  <CustomVideo autoplay video={item.video} />
+                <Grid item xs={12} sm={6} md={7}>
+                  <S.StyledVideo
+                    autoplay
+                    video={item.video}
+                    arPaddingPercentage={75}
+                  />
                 </Grid>
-                <Grid item xs={6} md={5}>
+                <Grid item xs={12} sm={6} md={5}>
                   <S.ItemText>
                     <S.ItemTitle>{item.title}</S.ItemTitle>
                     <Stack spacing={{ xs: 2, md: 4 }}>
