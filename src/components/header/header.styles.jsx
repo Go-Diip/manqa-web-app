@@ -4,7 +4,7 @@ import CustomLink from "../custom-link/custom-link.component"
 
 export const Header = styled(AppBar)`
   background-color: ${({ theme }) => theme.palette.text.secondary};
-  padding: 1rem 0;
+  padding: 11px 0;
   ${({ theme }) => theme.breakpoints.down("sm")} {
     position: fixed;
     z-index: 100;
@@ -20,14 +20,12 @@ export const Header = styled(AppBar)`
     }
   }
   &.home {
-    opacity: 0;
-    pointer-events: none;
-    position: fixed;
-    transition: all 0.3s ease-in-out;
-    &.MuiPaper-elevation4 {
-      opacity: 1;
-      pointer-events: all;
+    ${({ theme }) => theme.breakpoints.up("sm")} {
+      display: none;
     }
+  }
+  ${({ theme }) => theme.breakpoints.up("sm")} {
+    padding: 1rem 0;
   }
   ${({ theme }) => theme.breakpoints.up("md")} {
     padding-top: 1.75rem;

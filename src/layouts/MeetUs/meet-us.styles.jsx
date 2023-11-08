@@ -2,10 +2,9 @@ import styled from "@emotion/styled"
 import { Typography } from "@mui/material"
 import CustomLink from "../../components/custom-link/custom-link.component"
 import CustomImage from "../../components/custom-image/custom-image.component"
+import CustomButton from "../../components/custom-button/custom-button.component"
 
-export const Section = styled.section`
-  background-color: ${({ theme }) => theme.palette.primary.main};
-`
+export const Section = styled.section``
 
 export const TextWrapper = styled.div`
   display: flex;
@@ -13,13 +12,8 @@ export const TextWrapper = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
+  background-color: ${({ theme }) => theme.palette.primary.main};
   padding: 5rem 1.5rem;
-  /* ${({ theme }) => theme.breakpoints.up("sm")} {
-    padding: 3rem 2rem;
-  }
-  ${({ theme }) => theme.breakpoints.up("md")} {
-    padding: 4rem 3rem;
-  } */
   ${({ theme }) => theme.breakpoints.up("lg")} {
     padding: 4rem 8.5rem;
   }
@@ -74,10 +68,65 @@ export const ImageWrapper = styled.div`
 `
 
 export const StyledImage = styled(CustomImage)`
-  height: 100%;
-  img {
-    ${({ theme }) => theme.breakpoints.down("md")} {
-      object-position: 0px 60%;
+  ${({ theme }) => theme.breakpoints.up("sm")} {
+    height: 100% !important;
+    padding-top: 90%;
+  }
+  ${({ theme }) => theme.breakpoints.up("md")} {
+    padding-top: 78%;
+  }
+`
+
+export const BottomWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+  background-color: ${({ theme }) => theme.palette.text.secondary};
+  ${({ theme }) => theme.breakpoints.up("sm")} {
+    display: none;
+  }
+`
+
+export const ReservationBtn = styled(CustomButton)`
+  padding: 0.45rem 1rem !important;
+  white-space: nowrap;
+  text-align: center;
+  /* line-height: normal; */
+  font-weight: 400;
+  letter-spacing: 0.16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  width: 220px;
+  z-index: 3;
+`
+
+export const PatternWrapper = styled.div`
+  position: absolute;
+  inset: 0;
+  svg {
+    position: absolute;
+    height: 160%;
+    width: auto;
+    &.left {
+      left: -25%;
+      top: -30%;
+    }
+    &.right {
+      right: -25%;
+      bottom: -30%;
+    }
+    &.top {
+      top: -105%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &.bottom {
+      bottom: -105%;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 `

@@ -19,13 +19,21 @@ const HomeHero = ({ sliderItems }) => {
     sliderRef.current.swiper.slideTo(index)
   }
 
+  const handleSwipe = swiper => {
+    // console.log("swiper :>> ", swiper)
+    setCurrentSlide(swiper.realIndex)
+  }
+
+  console.log("currentSlide :>> ", currentSlide)
+
   return (
     <S.Section>
+      <S.ImageFilter />
       <S.Wrapper maxWidth="xl">
         <Box />
         <Box>
           <S.LogoWrapper>
-            <Logo />
+            <Logo className="logo" />
           </S.LogoWrapper>
           <S.LinksWrapper>
             {RESERVATIONS_ENABLED && (
@@ -71,6 +79,7 @@ const HomeHero = ({ sliderItems }) => {
           loop={true}
           slidesPerView={1}
           modules={[Autoplay]}
+          onSlideChange={handleSwipe}
         >
           {sliderItems?.map(({ image, name }, index) => (
             <SwiperSlide key={`${index}-Testimonials}`}>

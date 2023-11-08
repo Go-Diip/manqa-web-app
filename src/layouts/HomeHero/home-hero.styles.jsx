@@ -7,6 +7,9 @@ export const Section = styled.section`
   position: relative;
   overflow: hidden;
   display: flex;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    margin-top: ${({ theme }) => theme.navHeight}px;
+  }
 `
 
 export const Wrapper = styled(Container)`
@@ -19,6 +22,14 @@ export const Wrapper = styled(Container)`
   justify-content: space-between;
   align-items: flex-end;
   pointer-events: none;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    align-items: center;
+    .logo {
+      path {
+        fill: ${({ theme }) => theme.palette.text.secondary};
+      }
+    }
+  }
 `
 
 export const SliderWrapper = styled.div`
@@ -35,13 +46,17 @@ export const SliderWrapper = styled.div`
 `
 
 export const BottomWrapper = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   pointer-events: all;
   margin-bottom: 1rem;
+  flex-direction: column-reverse;
+  gap: 1rem;
   ${({ theme }) => theme.breakpoints.up("sm")} {
+    width: 100%;
+    flex-direction: row;
+    gap: 0;
     margin-bottom: 2rem;
   }
 `
@@ -71,12 +86,14 @@ export const PaginationItem = styled.div`
 `
 
 export const Name = styled(Typography)`
-  color: ${({ theme }) => theme.palette.primary.dark};
-  font-size: ${({ theme }) => theme.typography.pxToRem(9)};
-  line-height: ${({ theme }) => theme.typography.pxToRem(21)};
+  color: ${({ theme }) => theme.palette.text.light};
+  font-size: ${({ theme }) => theme.typography.pxToRem(14)};
+  line-height: 100%;
   font-weight: 300;
-  mix-blend-mode: multiply;
+  text-align: center;
   ${({ theme }) => theme.breakpoints.up("sm")} {
+    text-align: right;
+    color: ${({ theme }) => theme.palette.primary.dark};
     font-size: 1.125rem;
     line-height: ${({ theme }) => theme.typography.pxToRem(21)};
   }
@@ -85,10 +102,31 @@ export const Name = styled(Typography)`
 export const SlideImage = styled(CustomImage)`
   /* position: absolute; */
   height: var(--viewport-height, 100vh);
-  min-height: 600px;
+  min-height: 500px;
   max-height: 1000px;
   img {
     object-position: right;
+    ${({ theme }) => theme.breakpoints.down("sm")} {
+      object-position: 25% 0;
+    }
+  }
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    height: calc(100vh - ${({ theme }) => theme.navHeight}px);
+  }
+`
+
+export const ImageFilter = styled.div`
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(61, 67, 49, 0.42) 0%,
+    rgba(61, 67, 49, 0.42) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+  ${({ theme }) => theme.breakpoints.up("sm")} {
+    display: none;
   }
 `
 
@@ -97,7 +135,7 @@ export const LogoWrapper = styled.div`
   pointer-events: all;
   ${({ theme }) => theme.breakpoints.down("sm")} {
     max-width: 220px;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
   }
 `
 
@@ -107,6 +145,9 @@ export const LinksWrapper = styled.div`
   align-items: flex-end;
   gap: 1rem;
   pointer-events: all;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    display: none;
+  }
 `
 
 export const LinkWrapper = styled.div``
