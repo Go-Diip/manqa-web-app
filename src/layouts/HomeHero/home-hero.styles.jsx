@@ -111,7 +111,9 @@ export const SlideImage = styled(CustomImage)`
     }
   }
   ${({ theme }) => theme.breakpoints.down("sm")} {
-    height: calc(100vh - ${({ theme }) => theme.navHeight}px);
+    height: calc(
+      var(--viewport-height, 100vh) - ${({ theme }) => theme.navHeight}px
+    );
   }
 `
 

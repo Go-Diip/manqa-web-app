@@ -20,11 +20,8 @@ const HomeHero = ({ sliderItems }) => {
   }
 
   const handleSwipe = swiper => {
-    // console.log("swiper :>> ", swiper)
     setCurrentSlide(swiper.realIndex)
   }
-
-  console.log("currentSlide :>> ", currentSlide)
 
   return (
     <S.Section>
