@@ -34,6 +34,7 @@ const theme = createTheme({
       disabled: "#10355A",
       hint: "#10355A",
       light: "#FFFFFF",
+      error: "#D32F2F",
     },
     alternate: {
       main: "rgb(247, 249, 250)",

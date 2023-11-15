@@ -79,6 +79,7 @@ const ReservationsWidget = () => {
     reValidateMode: "onBlur",
     defaultValues: {
       date: dayjs(),
+      phone: "",
     },
   })
 
@@ -101,7 +102,6 @@ const ReservationsWidget = () => {
 
     data.date = date.toISOString()
     console.log("data :>> ", data)
-
     const reservationRes = await createReservation(data)
     // console.log("reservationRes :>> ", reservationRes)
     if (reservationRes?.status !== "success") {
