@@ -45,11 +45,6 @@ const StepTwo = ({ setCurrentStep, areas }) => {
   }
   const area = watch("area")
   const selectedTime = watch("time")
-  const phone = watch("phone")
-  console.log("phone :>> ", phone)
-  const areaError = getRHFErrorMessage(errors, "area")
-  // console.log("areas :>> ", areas)
-  // const selectedArea = areas.find(({ name }) => name === area)
 
   useEffect(() => {
     trigger("area")
