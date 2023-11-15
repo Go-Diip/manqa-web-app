@@ -127,8 +127,11 @@ const ReservationsWidget = () => {
     // console.log("availability :>> ", availability)
     const newTimes =
       availability?.filter(item => item.status === TIME_STATUSES.ACTIVE) ?? []
+    const selectedTime = watch("time")
+    // console.log("selectedTime :>> ", selectedTime)
     // console.log("newTimes :>> ", newTimes)
     setAvailableTimes(newTimes)
+    if (newTimes.find(time => time.value === selectedTime)) return
     setValue("time", newTimes[0]?.value)
     trigger("time")
   }
