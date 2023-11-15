@@ -95,14 +95,13 @@ const ReservationsWidget = () => {
   }
 
   const onSubmit = async data => {
-    // setIsLoading(true)
+    setIsLoading(true)
     const jsDate = dayjs(data.date)
     const date = dayjs(`${jsDate.format("YYYY-MM-DD")} ${data.time}`)
     // console.log("date :>> ", date);
 
     data.date = date.toISOString()
     console.log("data :>> ", data)
-    return
     const reservationRes = await createReservation(data)
     // console.log("reservationRes :>> ", reservationRes)
     if (reservationRes?.status !== "success") {
