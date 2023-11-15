@@ -16,7 +16,7 @@ const Footer = () => {
           <Grid item xs={12} md={4}>
             <Stack spacing={2}>
               <S.InfoText>
-                Horarios de atención: <br /> Lunes a domingo 12:00-20:30
+                Horarios de atención: <br /> Lunes a domingo 12:00-20:0
               </S.InfoText>
               <S.InfoAnchor href="tel:+593963548986">
                 +5939 6354 8986
