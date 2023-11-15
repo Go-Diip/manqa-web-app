@@ -118,6 +118,7 @@ const ReservationsWidget = () => {
   // console.log("isOpenDay :>> ", isOpenDay)
 
   const handleChangeDate = async () => {
+    if (currentStep !== STEPS.SELECT_TABLE) return
     const availability = await evaluateCalendarDate(
       timesArray,
       reservationDate?.format("YYYY-MM-DD"),
