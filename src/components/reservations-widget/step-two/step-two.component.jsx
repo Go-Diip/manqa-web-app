@@ -23,13 +23,13 @@ import {
   isInTimeRange,
   validatePhone,
 } from "../../../utils/utils.js"
+import CustomPhoneInput from "../../custom-phone-input/custom-phone-input.component.jsx"
 
 const inputNames = ["firstName", "lastName", "phone", "email", "area"]
 
 const StepTwo = ({ setCurrentStep, areas }) => {
   const {
     trigger,
-    control,
     watch,
     formState: { errors },
   } = useFormContext()
@@ -45,6 +45,8 @@ const StepTwo = ({ setCurrentStep, areas }) => {
   }
   const area = watch("area")
   const selectedTime = watch("time")
+  const phone = watch("phone")
+  console.log("phone :>> ", phone)
   const areaError = getRHFErrorMessage(errors, "area")
   // console.log("areas :>> ", areas)
   // const selectedArea = areas.find(({ name }) => name === area)
@@ -98,7 +100,7 @@ const StepTwo = ({ setCurrentStep, areas }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <WidgetTextField
+          {/* <WidgetTextField
             name={inputNames[2]}
             label="Teléfono"
             margin="none"
@@ -122,7 +124,8 @@ const StepTwo = ({ setCurrentStep, areas }) => {
                 </InputAdornment>
               ),
             }}
-          />
+          /> */}
+          <CustomPhoneInput name={inputNames[2]} label="Teléfono" />
         </Grid>
         <Grid item xs={12} md={6}>
           <WidgetTextField
