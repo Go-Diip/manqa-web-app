@@ -221,15 +221,8 @@ const ReservationsWidget = () => {
                 <Typography>
                   <b>Horario </b>
                 </Typography>
-                <Typography>Martes a Sábado:</Typography>
-                <Typography>
-                  Restaurante <br /> 12:30pm - 3:30pm 7:00pm - 10:30pm
-                </Typography>
-                <Typography>
-                  Segundo Piso <br />
-                  7:00pm - 12:00am
-                </Typography>
-                <Typography>Domingo y Lunes: cerrados</Typography>
+                <Typography>Lunes a Domingo:</Typography>
+                <Typography>12:00 PM - 8:00 PM</Typography>
               </Grid>
             </Grid>
           </S.Disclaimer>
