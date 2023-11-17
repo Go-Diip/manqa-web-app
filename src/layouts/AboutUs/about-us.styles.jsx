@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { Container, Typography } from "@mui/material"
+import { Container, Stack, Typography } from "@mui/material"
 import CustomButton from "../../components/custom-button/custom-button.component"
 import CustomImage from "../../components/custom-image/custom-image.component"
 import CustomVideo from "../../components/custom-video/custom-video.component"
@@ -116,6 +116,12 @@ export const ItemText = styled.div`
   ${({ theme }) => theme.breakpoints.up("sm")} {
     background-color: ${({ theme }) => theme.palette.text.light};
     padding: 1rem 1.375rem;
+  }
+`
+
+export const ButtonsWrapper = styled(Stack)`
+  ${({ theme }) => theme.breakpoints.up("md")} {
+    min-height: 119px;
   }
 `
 

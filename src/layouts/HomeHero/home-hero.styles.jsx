@@ -166,12 +166,13 @@ export const SubItemsWrapper = styled.div`
   }
 `
 
-export const SubItem = styled(CustomLink)`
+export const SubItem = styled.a`
   color: ${({ theme }) => theme.palette.primary.light};
   letter-spacing: -0.27px;
   text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.125rem;
+  text-decoration: none;
   font-weight: 300;
   ${({ theme }) => theme.breakpoints.up("sm")} {
     font-weight: 400;

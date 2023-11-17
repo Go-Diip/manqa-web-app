@@ -37,7 +37,7 @@ export const InfoText = styled.div`
   }
 `
 
-export const InfoAnchor = styled.a`
+export const InfoAnchor = styled(CustomLink)`
   font-size: 1.125rem;
   font-weight: 300;
   line-height: 2rem;

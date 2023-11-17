@@ -38,7 +38,7 @@ const Header = ({ isHome }) => {
           </S.LinksWrapper>
           <S.MobileWrapper>
             {RESERVATIONS_ENABLED && (
-              <S.StyledLink url="/reservaciones" style={{ color: "#4A97AF" }}>
+              <S.StyledLink url="/reservaciones/" style={{ color: "#4A97AF" }}>
                 Reservar
               </S.StyledLink>
             )}
@@ -58,7 +58,11 @@ const Header = ({ isHome }) => {
           <Collapse in={isOpenDropdown} unmountOnExit>
             <Stack>
               {menuItems?.map((item, index) => (
-                <S.MobileMenuItem key={`link-${index}`} url={item.url}>
+                <S.MobileMenuItem
+                  key={`link-${index}`}
+                  href={item.url}
+                  target={item.target}
+                >
                   {item.title}
                 </S.MobileMenuItem>
               ))}

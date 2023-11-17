@@ -2,10 +2,11 @@ import styled from "@emotion/styled"
 import CustomLink from "../../custom-link/custom-link.component"
 import { Menu, Typography } from "@mui/material"
 
-export const StyledLink = styled(CustomLink)`
+export const StyledLink = styled.a`
   font-size: 0.875rem;
   line-height: 1.125rem;
   text-transform: uppercase;
+  text-decoration: none;
 `
 
 export const StyledText = styled(Typography)`

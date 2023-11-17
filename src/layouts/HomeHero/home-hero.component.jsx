@@ -48,10 +48,25 @@ const HomeHero = ({ sliderItems }) => {
                 timeout={400}
               >
                 <S.SubItemsWrapper>
-                  <S.SubItem>Carta de alimentos</S.SubItem>
-                  <S.SubItem>Menú del día</S.SubItem>
-                  <S.SubItem>Bebidas</S.SubItem>
-                  <S.SubItem>Carta de vinos</S.SubItem>
+                  <S.SubItem
+                    href="https://admin.manqa.godiip.com/wp-content/uploads/2023/11/carta-alimentos.pdf"
+                    target="_blank"
+                  >
+                    Carta de alimentos
+                  </S.SubItem>
+                  {/*<S.SubItem>Menú del día</S.SubItem>*/}
+                  <S.SubItem
+                    href="https://admin.manqa.godiip.com/wp-content/uploads/2023/11/carta-bebidas.pdf"
+                    target="_blank"
+                  >
+                    Bebidas
+                  </S.SubItem>
+                  <S.SubItem
+                    href="https://admin.manqa.godiip.com/wp-content/uploads/2023/11/carta-vinos.pdf"
+                    target="_blank"
+                  >
+                    Carta de vinos
+                  </S.SubItem>
                 </S.SubItemsWrapper>
               </Collapse>
             </S.LinkWrapper>
