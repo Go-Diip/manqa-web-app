@@ -42,7 +42,9 @@ const HeaderItem = ({ title, url, items }) => {
         >
           {items?.map((item, index) => (
             <MenuItem key={`link-${index}`} onClick={handleClose}>
-              <S.StyledLink url={item.url}>{item.title}</S.StyledLink>
+              <S.StyledLink href={item.url} target={item?.target}>
+                {item.title}
+              </S.StyledLink>
             </MenuItem>
           ))}
         </S.StyledMenu>

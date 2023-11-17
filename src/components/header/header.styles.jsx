@@ -103,11 +103,12 @@ export const MenuTitle = styled(Typography)`
   text-transform: uppercase;
 `
 
-export const MobileMenuItem = styled(CustomLink)`
+export const MobileMenuItem = styled.a`
   padding: 0.75rem 2.5rem;
   font-size: 0.875rem;
   line-height: 1.125rem;
   text-transform: uppercase;
+  text-decoration: none;
   border-bottom: 1px solid rgba(112, 121, 122, 0.5);
   :last-of-type {
     border-bottom: 0;

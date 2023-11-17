@@ -48,7 +48,7 @@ const AboutUs = ({ title, description, items }) => {
                 <Grid item xs={12} sm={6} md={5}>
                   <S.ItemText>
                     <S.ItemTitle>{item.title}</S.ItemTitle>
-                    <Stack spacing={{ xs: 2, md: 4 }}>
+                    <S.ButtonsWrapper spacing={{ xs: 2, md: 4 }}>
                       {item.subItems?.map(({ button }, index) => (
                         <S.StyledBtn
                           color="secondary"
@@ -59,7 +59,7 @@ const AboutUs = ({ title, description, items }) => {
                           {button?.title}
                         </S.StyledBtn>
                       ))}
-                    </Stack>
+                    </S.ButtonsWrapper>
                   </S.ItemText>
                 </Grid>
               </Grid>

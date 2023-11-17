@@ -12,19 +12,18 @@
         "items": [
             {
                 "title": "Carta de alimentos",
-                "url": "#"
-            },
-            {
-                "title": "Menú del día",
-                "url": "#"
+                "url": "https://admin.manqa.godiip.com/wp-content/uploads/2023/11/carta-alimentos.pdf",
+                "target": "_blank"
             },
             {
                 "title": "Bebidas",
-                "url": "#"
+                "url": "https://admin.manqa.godiip.com/wp-content/uploads/2023/11/carta-bebidas.pdf",
+                "target": "_blank"
             },
             {
                 "title": "Carta de vinos",
-                "url": "#"
+                "url": "https://admin.manqa.godiip.com/wp-content/uploads/2023/11/carta-vinos.pdf",
+                "target": "_blank"
             }
         ]
     }

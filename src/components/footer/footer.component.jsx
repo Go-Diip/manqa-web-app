@@ -54,8 +54,12 @@ const Footer = () => {
               spacing={{ xs: 1, md: 3 }}
               marginTop={{ xs: 1 }}
             >
-              <S.InfoAnchor href="#">Políticas de privacidad</S.InfoAnchor>
-              <S.InfoAnchor href="#">Términos y condiciones</S.InfoAnchor>
+              <S.InfoAnchor url="/politicas-de-privacidad/">
+                Políticas de privacidad
+              </S.InfoAnchor>
+              <S.InfoAnchor url="/terminos-y-condiciones/">
+                Términos y condiciones
+              </S.InfoAnchor>
             </Stack>
           </S.InfoText>
           <Stack
@@ -63,8 +67,12 @@ const Footer = () => {
             direction={{ xs: "column", md: "row" }}
             spacing={{ xs: 1, md: 3 }}
           >
-            <S.InfoAnchor href="#">Políticas de privacidad</S.InfoAnchor>
-            <S.InfoAnchor href="#">Términos y condiciones</S.InfoAnchor>
+            <S.InfoAnchor url="/politicas-de-privacidad/">
+              Políticas de privacidad
+            </S.InfoAnchor>
+            <S.InfoAnchor url="/terminos-y-condiciones/">
+              Términos y condiciones
+            </S.InfoAnchor>
           </Stack>
           <Stack
             spacing={{ xs: 5, md: 7.5 }}
