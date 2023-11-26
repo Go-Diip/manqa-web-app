@@ -94,17 +94,17 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `gatsby-starter-default`,
-    //     short_name: `starter`,
-    //     start_url: `/`,
-    //     background_color: `transparent`,
-    //     theme_color: `#39C33A`,
-    //     // icon: `src/assets/icons/short-logo.svg` // This path is relative to the root of the site.
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Manqa`,
+        short_name: `Manqa`,
+        start_url: `/`,
+        background_color: `transparent`,
+        theme_color: `#63A8BE`,
+        icon: `src/assets/favicon.png`, // This path is relative to the root of the site.
+      },
+    },
     /*
      * Gatsby's data processing layer begins with “source”
      * plugins. Here the site sources its data from WordPress.
