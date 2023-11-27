@@ -154,11 +154,11 @@ const ReservationsWidget = () => {
       isMonday
     ) {
       setOverviewText(
-        "Hemos recibido tu solicitud de reservación. Recibirás la confirmación vía WhatsApp y correo electrónico durante nuestro horario de atención para reservaciones: Lunes a Domingo de 12:00 PM a 8:00 PM.  ",
+        "Tu reservación se ha completado con éxito. Pronto recibirás la confirmación a través de WhatsApp y correo electrónico. ¡Te esperamos!",
       )
     } else {
       setOverviewText(
-        "Hemos recibido tu solicitud de reservación, en breve recibirás un mensaje con el estado de tu reserva dependiendo de nuestra disponibilad,  via WhatsApp y correo electrónico.",
+        "Tu reservación se ha completado con éxito. Pronto recibirás la confirmación a través de WhatsApp y correo electrónico. ¡Te esperamos!",
       )
     }
     if (overviewData) {

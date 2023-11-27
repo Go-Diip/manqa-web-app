@@ -95,14 +95,13 @@ const StepThree = ({ errorMessage }) => {
           </p>
           <ul style={{ paddingLeft: "1rem" }}>
             <li>
-              Una vez enviada tu solicitud de reservación, deberas esperar por
-              la confirmación según nuestra disponibilidad via WhatsApp y correo
+              Recibirás la confirmación de tu reservación vía WhatsApp y correo
               electrónico.
             </li>
             <li>
               En caso de retraso, cancelaciones o cambio de hora de tu reserva
-              por favor notifícanos vía WhatsApp o llamada telefónica, al: 099
-              770 2994.
+              por favor notifícanos vía WhatsApp o llamada telefónica, al: 09
+              6354 8986
             </li>
             <li>
               También puedes realizar tu reservación vía WhatsApp o llamada
@@ -111,11 +110,6 @@ const StepThree = ({ errorMessage }) => {
             <li>
               El restaurante no garantiza ubicación de la mesa al momento de
               realizar la reservación.
-            </li>
-            <li>
-              Las reservaciones solicitadas fuera de nuestros horarios de
-              atención serán confirmadas dentro de los siguientes horarios:
-              Lunes a Domingo de 12:00 PM - 8:00 PM.
             </li>
           </ul>
         </S.ImportantInfo>
