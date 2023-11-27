@@ -130,32 +130,3 @@ export const isInTimeRange = (time, startTime, endTime) => {
     selectedDate.isBetween(startDate, endDate)
   )
 }
-
-export const sendWhatsappMsg = catchAsync(async (text, phone) => {
-  if (!phone) {
-    console.log("No phone provided. Was not able to send WhatsApp message.")
-    return
-  }
-  // return await window.fetch(`/.netlify/functions/send-whatsapp-message`, {
-  return await window.fetch(`/api/send-whatsapp-message`, {
-    method: `POST`,
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({ text, phone }),
-  })
-})
-
-export const getWhatsappTemplateMsg = (templateName, data) => {
-  const { firstName, lastName, date } = data
-  switch (templateName) {
-    case whatsappTemplates.RESERVATION_NEW:
-      return `Nueva reservación de ${firstName} ${lastName} para el día ${date}.`
-    case whatsappTemplates.RESERVATION_CONFIRMED:
-      return `Hola, ${firstName}. Tu reservación el día ${date} esta confirmada. Cuentas con 10 minutos de espera desde la hora de tu reservación. Para retrasos o cambios comunícate con nosotros al 099 770 2994.`
-    case whatsappTemplates.RESERVATION_NOT_AVAILABLE:
-      return `Hola, ${firstName}. No disponemos de mesas en el horario solicitado. Puedes comunicarte con nuestro equipo o visitar nuestra página web para conocer nuestra disponibilidad en próximos horarios.`
-    case whatsappTemplates.RESERVATION_CANCELED:
-      return `Tu reservación ha sido cancelada. Te esperamos en Banh Mi en una próxima ocasión.`
-  }
-}

@@ -20,6 +20,7 @@ import {
 import { TIME_STATUSES } from "../../utils/constants"
 import { evaluateDate } from "../../utils/utils"
 import dayjs from "dayjs"
+import parse from "html-react-parser"
 // import { sendGtagReservationMadeEvent } from "../../gtag-utils"
 // import addToMailchimp from "gatsby-plugin-mailchimp"
 
@@ -154,11 +155,11 @@ const ReservationsWidget = () => {
       isMonday
     ) {
       setOverviewText(
-        "Tu reservación se ha completado con éxito. Pronto recibirás la confirmación a través de WhatsApp y correo electrónico. ¡Te esperamos!",
+        `Tu reservación se ha completado con éxito. Pronto recibirás la confirmación a través de WhatsApp y correo electrónico. <br />   ¡Te esperamos!`,
       )
     } else {
       setOverviewText(
-        "Tu reservación se ha completado con éxito. Pronto recibirás la confirmación a través de WhatsApp y correo electrónico. ¡Te esperamos!",
+        `Tu reservación se ha completado con éxito. Pronto recibirás la confirmación a través de WhatsApp y correo electrónico. <br /> ¡Te esperamos!`,
       )
     }
     if (overviewData) {
@@ -239,7 +240,9 @@ const ReservationsWidget = () => {
           <Grid container spacing={5} alignItems="center">
             <Grid item xs={12} sm={6}>
               <S.ModalName>Hola {overviewData?.firstName}</S.ModalName>
-              <S.ModalDescription>{overviewText}</S.ModalDescription>
+              <S.ModalDescription>
+                {overviewText ? parse(overviewText) : null}
+              </S.ModalDescription>
             </Grid>
             <Grid item xs={12} sm={6}>
               <S.ModalLabel sx={{ marginBottom: "1em" }}>
