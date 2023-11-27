@@ -126,6 +126,7 @@ export const createReservation = catchAsync(async data => {
     clientId: CLIENT_ID,
     locationId: LOCATION_ID,
     status: STATUSES.confirmed,
+    source: "website",
     ...data,
   })
   return res?.data
