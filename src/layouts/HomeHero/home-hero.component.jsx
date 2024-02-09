@@ -49,14 +49,14 @@ const HomeHero = ({ sliderItems }) => {
               >
                 <S.SubItemsWrapper>
                   <S.SubItem
-                    href="https://admin.manqa.godiip.com/wp-content/uploads/2023/11/carta-alimentos.pdf"
+                    href="https://manqa.ec/static/828bf3c1c3a363fad6efd00941e19082/MANQA-Menu-Web.pdf"
                     target="_blank"
                   >
                     Carta de alimentos
                   </S.SubItem>
                   {/*<S.SubItem>Menú del día</S.SubItem>*/}
                   <S.SubItem
-                    href="https://admin.manqa.godiip.com/wp-content/uploads/2023/11/carta-bebidas.pdf"
+                    href="https://manqa.ec/static/b70332fc04a3ad8357f96138c43cfe4f/MANQA-Menu-Web-Bebidas.pdf"
                     target="_blank"
                   >
                     Bebidas
