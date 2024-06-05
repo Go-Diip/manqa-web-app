@@ -49,7 +49,7 @@ const HomeHero = ({ sliderItems }) => {
               >
                 <S.SubItemsWrapper>
                   <S.SubItem
-                    href="https://manqa.ec/static/828bf3c1c3a363fad6efd00941e19082/MANQA-Menu-Web.pdf"
+                    href="https://admin.manqa.godiip.com/wp-content/uploads/2024/06/MANQA-Menu-April-2024.pdf"
                     target="_blank"
                   >
                     Carta de alimentos
