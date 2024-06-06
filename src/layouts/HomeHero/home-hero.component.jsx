@@ -56,7 +56,7 @@ const HomeHero = ({ sliderItems }) => {
                   </S.SubItem>
                   {/*<S.SubItem>Menú del día</S.SubItem>*/}
                   <S.SubItem
-                    href="https://manqa.ec/static/b70332fc04a3ad8357f96138c43cfe4f/MANQA-Menu-Web-Bebidas.pdf"
+                    href="https://admin.manqa.godiip.com/wp-content/uploads/2024/02/MANQA-Menu-Web-Bebidas.pdf"
                     target="_blank"
                   >
                     Bebidas
